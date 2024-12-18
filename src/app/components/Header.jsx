@@ -4,15 +4,16 @@ import Link from "next/link";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-// import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 // import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 // import { dark, light } from '@clerk/themes';
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+
 export default function Header() {
   const path = usePathname();
-  //   const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const searchParams = useSearchParams();
@@ -60,7 +61,9 @@ export default function Header() {
           color="gray"
           pill
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        ></Button>
+        >
+          {theme === "light" ? <FaSun /> : <FaMoon />}
+        </Button>
         {/* <SignedIn>
           <UserButton
             appearance={{
@@ -70,11 +73,11 @@ export default function Header() {
           />
         </SignedIn> */}
         {/* <SignedOut> */}
-          <Link href='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
-              Sign In
-            </Button>
-          </Link>
+        <Link href="/sign-in">
+          <Button gradientDuoTone="purpleToBlue" outline>
+            Sign In
+          </Button>
+        </Link>
         {/* </SignedOut> */}
         <Navbar.Toggle />
       </div>
@@ -85,12 +88,20 @@ export default function Header() {
           </Navbar.Link>
         </Link>
         <Link href="/about">
-          <Navbar.Link active={path === "/about"} as={"div"} className="text-[20px]">
+          <Navbar.Link
+            active={path === "/about"}
+            as={"div"}
+            className="text-[20px]"
+          >
             About
           </Navbar.Link>
         </Link>
         <Link href="/projects">
-          <Navbar.Link active={path === "/projects"} as={"div"} className="text-[20px]">
+          <Navbar.Link
+            active={path === "/projects"}
+            as={"div"}
+            className="text-[20px]"
+          >
             Projects
           </Navbar.Link>
         </Link>
