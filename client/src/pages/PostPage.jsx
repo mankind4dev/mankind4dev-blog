@@ -1,7 +1,6 @@
 import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import CallToAction from '../components/CallToAction';
+import { Link, useParams } from 'react-router-dom'; 
 import CommentSection from '../components/CommentSection';
 import PostCard from '../components/PostCard';
 
@@ -64,7 +63,7 @@ export default function PostPage() {
       </h1>
       <Link
         to={`/search?category=${post && post.category}`}
-        className='self-center mt-5'
+        className='self-center mt-5 capitalize'
       >
         <Button color='gray' pill size='xs'>
           {post && post.category}
@@ -75,14 +74,14 @@ export default function PostPage() {
         alt={post && post.title}
         className='mt-10 p-3 max-h-[600px] w-full object-cover'
       />
-      <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
-        <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
-        <span className='italic'>
+      <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs flex-wrap'>
+        <span className='flex flex-wrap whitespace-wrap' >{post && new Date(post.createdAt).toLocaleDateString()}</span>
+        <span className='italic flex-wrap'>
           {post && (post.content.length / 1000).toFixed(0)} mins read
         </span>
       </div>
       <div
-        className='p-3 max-w-2xl mx-auto w-full post-content'
+        className='p-3 max-w-2xl  flex-wrap mx-auto w-[80%] sm:w-full post-content'
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
       {/* <div className='max-w-4xl mx-auto w-full'>

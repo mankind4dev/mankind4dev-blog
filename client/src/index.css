@@ -10,8 +10,34 @@ body {
   font-size: 1.05rem;
 }
 
-.post-content p {
+.ql-syntax {
+  width: 100%;
+  display: block;  
+  flex-wrap: wrap;  
+  word-wrap: break-word;  
+  overflow-wrap: break-word;  
+  white-space: pre-wrap; 
+}
+
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; 
+  white-space: wrap;  
+  width: 100%;
+   
+}
+
+.post-content p { 
+  width: 100%;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.post-content span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .post-content h1 {
@@ -38,4 +64,15 @@ body {
 
 .dark .post-content a {
   color: red;
+}
+
+.post-content ul{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.post-content li{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
