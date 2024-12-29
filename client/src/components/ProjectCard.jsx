@@ -5,9 +5,31 @@ import {
   htmlCssPortfolio,
   myPortfolio,
   realCastle,
+  mankind4devBlog,
 } from "/public";
 
 export const projects = [
+  {
+    name: "Mankind4dev Blog",
+    description:
+      "Explore web development, scalable software practices, and programming mastery with step-by-step guides. From beginner tips to advanced techniques, our tutorials offer practical insights and real-world examples to enhance your skills.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "MERN.JS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: mankind4devBlog,
+    source_code_link: "https://github.com/mankind4dev/mankind4dev-blog",
+  },
   {
     name: "Real Castle",
     description:
@@ -119,7 +141,10 @@ export default function ProjectCard() {
   return (
     <>
       {projects.map((project, index) => (
-        <div key={index} className="group  relative w-full border border-teal-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all">
+        <div
+          key={index}
+          className="group  relative w-full border border-teal-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all"
+        >
           <>
             <Link to={project.source_code_link} target="_blank">
               <img
@@ -132,7 +157,9 @@ export default function ProjectCard() {
               <p className="text-lg font-semibold line-clamp-2">
                 {project.name}
               </p>
-              <span className="italic text-sm mb-5 ms:mb-6">{project.description}</span>
+              <span className="italic text-sm mb-5 ms:mb-6">
+                {project.description}
+              </span>
               <Link
                 to={project.source_code_link}
                 target="_blank"
