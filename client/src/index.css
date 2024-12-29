@@ -17,6 +17,10 @@ body {
   word-wrap: break-word;  
   overflow-wrap: break-word;  
   white-space: pre-wrap; 
+  padding: 5px;
+  background: #6e6e6e;
+  color: azure;
+  border-radius: 8px;
 }
 
 
