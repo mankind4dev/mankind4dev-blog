@@ -3,6 +3,7 @@ import CallToAction from "../components/CallToAction";
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
 import ProjectCard from "../components/ProjectCard";
+import { Spinner } from "flowbite-react";
 
 // export const projects = [
 //   {
@@ -151,14 +152,14 @@ export default function Home() {
       </div> */}
 
       <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7">
-        {posts && posts.length > 0 && (
+        {posts && posts.length > 0 ? (
           <div className="flex flex-col gap-6">
             <h2 className="text-2xl font-semibold text-start">Recent Posts</h2>
             <div className="flex flex-wrap gap-4">
               {posts.map((post) => (
                 <PostCard key={post._id} post={post} />
               ))}
-            </div> 
+            </div>
             <Link
               to={"/search"}
               className="text-lg text-teal-500 hover:underline text-center"
@@ -166,6 +167,11 @@ export default function Home() {
               View all posts
             </Link>
           </div>
+        ) : (
+          <>
+          <p className="flex w-full justify-center text-center self-center"></p>
+            <Spinner size="lg" className="flex justify-center text-center self-center" />
+          </>
         )}
       </div>
     </div>
