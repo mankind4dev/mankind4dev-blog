@@ -30,8 +30,9 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      if (data.success === false) {
-        dispatch(signInFailure(data.message));
+      if (!res.ok || data.success === false) {
+        dispatch(signInFailure(data.message || "Login failed"));
+        return;
       }
 
       if (res.ok) {
@@ -39,7 +40,7 @@ export default function SignIn() {
         navigate("/");
       }
     } catch (error) {
-      dispatch(signInFailure(error.message));
+      dispatch(signInFailure(error.message || "Network error"));
     }
   };
   return (
